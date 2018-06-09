@@ -1,5 +1,5 @@
-var Product = require("./product.js");
-var CarInsurance = require("./carInsurance.js");
+var Product = require("./src/product.js");
+var CarInsurance = require("./src/carInsurance.js");
 
 
 const productsAtDayZero = [
