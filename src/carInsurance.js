@@ -20,10 +20,10 @@ module.exports = class CarInsurance {
                     this.megaCoverage (this.products[i])
                     break
                 case 'Special Full Coverage':
-                    //this.specialFullCoverage (this.products[i])
+                    this.specialFullCoverage (this.products[i])
                     break
                 case 'Super Sale':
-                    //this.superSale (this.products[i])
+                    this.superSale (this.products[i])
                     break
             }
         }
@@ -60,4 +60,28 @@ module.exports = class CarInsurance {
     megaCoverage (product) {
         //do nothing
     }
+
+    specialFullCoverage (product) {
+        product.sellIn--
+        if (product.sellIn < 0) {
+            product.price = 0;
+        } else if (product.sellIn < 5) {
+            product.price += 3;
+        } else if (product.sellIn < 10) {
+            product.price += 2;
+        } else {
+            product.price += 1;
+        }
+        product.price = (product.price > 50)? 50: product.price;
+    }
+
+    superSale (product) {
+        product.sellIn--
+        if (product.price > 0 && product.price < 50) {
+            var decrease = (product.sellIn < 0)? 4: 2;
+            product.price -= decrease;
+            product.price = (product.price < 0)? 0: product.price;
+        }
+    }
 }
+
