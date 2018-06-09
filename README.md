@@ -9,7 +9,7 @@
 ## Usage
 
 #### Tests
-    docker run test
+    npm run test
 
 #### Get Coverage Report
-    docker run after-30-days
+    npm run after-30-days
